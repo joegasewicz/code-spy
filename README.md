@@ -4,25 +4,17 @@ Watches for file changes & runs tasks against your Python code.
 ### Quickstart
 
 ```python
-from bobtail import BobTail
-from bobtail_logger import BobtailLogger
+from flask import Flask
 from dev_runner import DevRunner, MyPyTask, DevServerTask
 
-from tests.routes import HomeRoute
-
-
-routes = [
-    (HomeRoute(), "/")
-]
 
 if __name__ == "__main__":
-    bobtail = BobTail(routes=routes)
-    bobtail.use(BobtailLogger())
+    flask = Flask(__name__)
     dr = DevRunner(
         path=".",
         tasks=[
             MyPyTask(path="routes", mypy_file="mypy.ini"),
-            DevServerTask(wsgi_app=bobtail),
+            DevServerTask(wsgi_app=flask),
         ]
     )
     dr.watch()
