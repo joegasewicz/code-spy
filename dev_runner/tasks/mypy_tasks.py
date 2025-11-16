@@ -6,12 +6,15 @@ from dev_runner.tasks.base_task import BaseTask
 
 class MyPyTask(BaseTask):
 
-    def __init__(self, *, path: str):
+    def __init__(self, *, path: str, mypy_file: str = "mypy.ini"):
         self.path = path
+        self.mypy_file = mypy_file
 
     def run(self):
         result = api.run([
             "--strict",
+            "--config-file",
+            self.mypy_file,
             self.path,
         ])
         std_info = result[0]

@@ -11,6 +11,8 @@ colorama = "*"
 [dev-packages]
 pylint = "*"
 pytest = "*"
+bobtail = "*"
+bobtail-logger = "*"
 
 [requires]
 python_version = "3.14"

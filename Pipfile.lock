@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ff70dac3bf17c8e9aca1e39247e9c963d1698329bdd800d662b48b607c7a5bfb"
+            "sha256": "c493053502e1bb57afdc521029ee464334e7d3efc38e7be2d93c3949e35e3f6d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -140,6 +140,28 @@
             ],
             "markers": "python_full_version >= '3.10.0'",
             "version": "==4.0.2"
+        },
+        "birman": {
+            "hashes": [
+                "sha256:277d94226f210c71ae02e0c97ab168ceff2b58fd41a49ae1437dab5f074545b6",
+                "sha256:a9b61576a4d8adde0eab5784b1c7f73de75d4dfef04b36f0913d82cca0d1e7d0"
+            ],
+            "version": "==0.0.2"
+        },
+        "bobtail": {
+            "hashes": [
+                "sha256:c32bffaa199348a67a02bc229062452b1f297a42d8a669c8a100dc8fa8a2e789"
+            ],
+            "index": "pypi",
+            "version": "==0.0.29"
+        },
+        "bobtail-logger": {
+            "hashes": [
+                "sha256:b815e7a31063fd88a3ea5c3b2eb06aa5bda07c611e466bc47afbb44ff5795fca",
+                "sha256:e1768f6461a131a0c257a7b3b405fe02b91a0418ca71d4c4534b70d02b9debff"
+            ],
+            "index": "pypi",
+            "version": "==0.0.1"
         },
         "dill": {
             "hashes": [

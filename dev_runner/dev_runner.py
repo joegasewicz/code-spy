@@ -13,7 +13,8 @@ class DevRunner:
     def __init__(self, *, path: str, tasks: list[BaseTask]):
         self.path = path
         self.tasks = tasks
-        self.file_handler = FileEventHandler(tasks=self.tasks)
+        self.observer = Observer()
+        self.file_handler = FileEventHandler(tasks=self.tasks, observer=self.observer)
         log.info("Starting dev-runner..")
 
     def run(self):
@@ -22,7 +23,8 @@ class DevRunner:
 
     def watch(self):
         self.run()
-        observer = Observer()
-        observer.schedule(self.file_handler, self.path, recursive=True)
-        observer.start()
-        observer.join()
+
+        self.observer.schedule(self.file_handler, self.path, recursive=True)
+        self.observer.start()
+
+        self.observer.join()

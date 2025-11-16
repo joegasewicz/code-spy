@@ -2,6 +2,9 @@ import logging
 
 from colorama import Fore, Style
 
+# Override 3rd party logging
+logging.getLogger("fsevents").setLevel(logging.WARNING)
+
 
 class CustomFormatter(logging.Formatter):
     _datefmt = "%Y-%m-%d %H:%M:%S"
@@ -33,4 +36,4 @@ handler.setFormatter(formatter)
 
 log = logging.getLogger(__name__)
 log.addHandler(handler)
-log.setLevel(logging.INFO)
+# log.setLevel(logging.INFO)
