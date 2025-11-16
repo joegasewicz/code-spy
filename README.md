@@ -1,5 +1,5 @@
 # Dev Runner
-Watches for file changes within your codebase & runs tasks to check & rerun your Python code.
+Watches for file changes & runs tasks against your Python code.
 
 ### Quickstart
 
