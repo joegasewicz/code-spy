@@ -1,0 +1,58 @@
+Metadata-Version: 2.4
+Name: code-spy
+Version: 0.1.0
+Summary: Watches for file changes & runs tasks against your Python code.
+Home-page: https://github.com/joegasewicz/dev-runner
+Author: Joe Gasewicz
+Author-email: contact@josef.digital
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: watchdog
+Requires-Dist: colorama
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
+
+# Dev Runner
+Watches for file changes & runs tasks against your Python code.
+
+### Quickstart
+
+```python
+from flask import Flask
+from dev_runner import DevRunner, MyPyTask, DevServerTask
+
+
+if __name__ == "__main__":
+    flask = Flask(__name__)
+    dr = DevRunner(
+        path=".",
+        tasks=[
+            MyPyTask(path="routes", mypy_file="mypy.ini"),
+            DevServerTask(wsgi_app=flask),
+        ]
+    )
+    dr.watch()
+```
+
+### Tasks
+- **Mypy** ✅
+- **SimpleHttpServer** ✅
+- **Pylint** *TODO*
+- **Pytest** *TODO*
+- **ISort** *TODO*
+- **Flake8** *TODO*
+- **Bandit** *TODO*
+- **Sphinx** *TODO*
+- **Custom Task** *TODO*
+
+

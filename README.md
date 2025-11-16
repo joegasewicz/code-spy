@@ -1,5 +1,11 @@
-# Dev Runner
+# Code Spy
 Watches for file changes & runs tasks against your Python code.
+
+
+### Install
+```bash
+ pip install code-spy
+```
 
 ### Quickstart
 
