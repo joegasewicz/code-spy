@@ -1,5 +1,5 @@
 # Dev Runner
-Development tools that watches for file changes within your codebase & runs tasks to check & rerun your Python code.
+Watches for file changes within your codebase & runs tasks to check & rerun your Python code.
 
 ### Examples
 
