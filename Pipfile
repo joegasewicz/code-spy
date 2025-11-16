@@ -4,6 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+mypy = "*"
+watchdog = "*"
+colorama = "*"
 
 [dev-packages]
 pylint = "*"
