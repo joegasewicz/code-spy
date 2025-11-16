@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
 ### Tasks
 - **Mypy** ✅
-- **SimpleHttpServer** *TODO*
+- **SimpleHttpServer** ✅
 - **Pylint** *TODO*
 - **Pytest** *TODO*
 - **ISort** *TODO*
