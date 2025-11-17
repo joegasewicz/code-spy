@@ -16,6 +16,7 @@ from code_spy import (
     MyPyTask,
     DevServerTask,
     PylintTask,
+    PytestTask,
 )
 
 
@@ -29,8 +30,9 @@ if __name__ == "__main__":
         path=".",
         tasks=[
             MyPyTask(path="routes", mypy_file="mypy.ini"),
-            DevServerTask(wsgi_app=flask),
             PylintTask(path="routes", rcfile=".pylintrc"),
+            PytestTask(path="tests"),
+            DevServerTask(wsgi_app=flask),
         ]
     )
     
@@ -42,11 +44,12 @@ if __name__ == "__main__":
 - **Mypy** ✅
 - **SimpleHttpServer** ✅
 - **Pylint** ✅
-- **Pytest** *TODO*
+- **Pytest** ✅
  
-### Plugins
-To restrict third party libraries to ship with code-spy, the rest of the tasks
-are installed via plugins. These include:
+### Tasks Requiring Library Installs
+To restrict the amount of third party libraries to ship with code-spy, the rest of the tasks
+require library installs:
+
 - **ISort** *TODO*
 - **Flake8** *TODO*
 - **Bandit** *TODO*

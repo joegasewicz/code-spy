@@ -6,9 +6,10 @@ from code_spy import (
     MyPyTask,
     DevServerTask,
     PylintTask,
+    PytestTask,
 )
 
-from tests.routes import HomeRoute
+from examples.routes import HomeRoute
 
 
 routes = [
@@ -23,6 +24,7 @@ if __name__ == "__main__":
         tasks=[
             MyPyTask(path="routes", mypy_file="mypy.ini"),
             PylintTask(path="routes", rcfile=".pylintrc"),
+            PytestTask(path="tests"),
             DevServerTask(wsgi_app=bobtail),
         ]
     )

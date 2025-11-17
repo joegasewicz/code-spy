@@ -15,6 +15,7 @@ setup(
         "colorama"
         "mypy",
         "pylint",
+        "pytest",
     ],
     classifiers=[
         "Programming Language :: Python :: 3.10",

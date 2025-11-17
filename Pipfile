@@ -8,6 +8,7 @@ mypy = "*"
 watchdog = "*"
 colorama = "*"
 pylint = "*"
+pytest = "*"
 
 [dev-packages]
 pylint = "*"

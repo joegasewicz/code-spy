@@ -4,4 +4,5 @@ from code_spy.tasks import (
     MyPyTask,
     DevServerTask,
     PylintTask,
+    PytestTask,
 )
