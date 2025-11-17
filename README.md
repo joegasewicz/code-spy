@@ -36,7 +36,7 @@ if __name__ == "__main__":
 - **Mypy** ✅
 - **SimpleHttpServer** ✅
 - **Pylint** ✅
-- **Pytest** ✅
+- **Pytest** *TODO*
 - **ISort** *TODO*
 - **Flake8** *TODO*
 - **Bandit** *TODO*
