@@ -8,8 +8,8 @@ setup(
     name="code-spy",
     version="0.1.0",
     description="Watches for file changes & runs tasks against your Python code.",
-    packages=["dev_runner"],
-    py_modules=["dev_runner"],
+    packages=["code_spy"],
+    py_modules=["code_spy"],
     install_requires=[
         "watchdog",
         "colorama"

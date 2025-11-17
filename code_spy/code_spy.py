@@ -3,12 +3,12 @@ import time
 from watchdog.observers import Observer
 
 
-from dev_runner.logger import log
-from dev_runner.tasks import BaseTask
-from dev_runner.event_handlers import FileEventHandler
+from code_spy.logger import log
+from code_spy.tasks import BaseTask
+from code_spy.event_handlers import FileEventHandler
 
 
-class DevRunner:
+class CodeSpy:
 
     def __init__(self, *, path: str, tasks: list[BaseTask]):
         self.path = path

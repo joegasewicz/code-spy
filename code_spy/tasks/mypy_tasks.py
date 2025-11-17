@@ -1,7 +1,7 @@
 from mypy import api
 
-from dev_runner.logger import log
-from dev_runner.tasks.base_task import BaseTask
+from code_spy.logger import log
+from code_spy.tasks.base_task import BaseTask
 
 
 class MyPyTask(BaseTask):

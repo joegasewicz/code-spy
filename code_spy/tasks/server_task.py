@@ -2,8 +2,8 @@ import threading
 from typing import Callable, Iterable, Any, Union
 from wsgiref.simple_server import make_server, WSGIRequestHandler
 
-from dev_runner.tasks import BaseTask
-from dev_runner.logger import log
+from code_spy.tasks import BaseTask
+from code_spy.logger import log
 
 
 WSGICallable = Callable[[dict[str, Any], Any], Iterable[bytes]]
