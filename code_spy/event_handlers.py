@@ -2,7 +2,7 @@ import time
 
 from watchdog.events import FileSystemEventHandler, DirModifiedEvent, FileModifiedEvent
 
-from dev_runner.tasks import BaseTask
+from code_spy.tasks import BaseTask
 
 
 class FileEventHandler(FileSystemEventHandler):
