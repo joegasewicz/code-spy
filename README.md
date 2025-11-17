@@ -43,6 +43,8 @@ if __name__ == "__main__":
 - **SimpleHttpServer** ✅
 - **Pylint** ✅
 - **Pytest** *TODO*
+ 
+### Plugins 
 - **ISort** *TODO*
 - **Flake8** *TODO*
 - **Bandit** *TODO*
