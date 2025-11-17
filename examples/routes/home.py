@@ -2,7 +2,7 @@ from bobtail import AbstractRoute, Request, Response
 
 
 class HomeRoute(AbstractRoute):  # type: ignore[misc]
-    def get(self, req: Request, res: Response) -> None:
+    def get(self, req: Request, res: Response) -> int:
         res.set_body({"title": "Welcome to my sit!"})
 
     def post(self, req: Request, res: Response) -> int:

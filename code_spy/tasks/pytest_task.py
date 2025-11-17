@@ -13,7 +13,7 @@ class PytestTask(BaseTask):
         self.path = path
         self.args = args
 
-    def run(self) -> None:
+    def run(self, *, log_length: int) -> None:
         args = []
         if self.path:
             args.append(self.path)
