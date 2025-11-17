@@ -47,7 +47,7 @@ if __name__ == "__main__":
 - **Pytest** ✅
  
 ### Tasks Requiring Library Installs
-To restrict the amount of third party libraries to ship with code-spy, the rest of the tasks
+To restrict the amount of third party libraries that ship with code-spy, the rest of the tasks
 require library installs:
 
 - **ISort** *TODO*
