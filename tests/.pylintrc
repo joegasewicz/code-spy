@@ -1,0 +1,6 @@
+[MASTER]
+load-plugins=
+ignore-patterns=tests
+
+[MESSAGES CONTROL]
+disable=C0114,C0115,C0116

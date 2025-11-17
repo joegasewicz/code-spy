@@ -22,7 +22,7 @@ if __name__ == "__main__":
         path=".",
         tasks=[
             MyPyTask(path="routes", mypy_file="mypy.ini"),
-            PylintTask(path="routes"),
+            PylintTask(path="routes", rcfile=".pylintrc"),
             DevServerTask(wsgi_app=bobtail),
         ]
     )
