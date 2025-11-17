@@ -11,7 +11,13 @@ Watches for file changes & runs tasks against your Python code.
 
 ```python
 from flask import Flask
-from code_spy import CodeSpy, MyPyTask, DevServerTask
+from code_spy import (
+    CodeSpy,
+    MyPyTask,
+    DevServerTask,
+    PylintTask,
+)
+
 
 if __name__ == "__main__":
     flask = Flask(__name__)
@@ -20,6 +26,7 @@ if __name__ == "__main__":
         tasks=[
             MyPyTask(path="routes", mypy_file="mypy.ini"),
             DevServerTask(wsgi_app=flask),
+            PylintTask(path="routes", rcfile=".pylintrc"),
         ]
     )
     cs.watch()
@@ -29,11 +36,9 @@ if __name__ == "__main__":
 - **Mypy** ✅
 - **SimpleHttpServer** ✅
 - **Pylint** ✅
-- **Pytest** *TODO*
+- **Pytest** ✅
 - **ISort** *TODO*
 - **Flake8** *TODO*
 - **Bandit** *TODO*
 - **Sphinx** *TODO*
 - **Custom Task** *TODO*
-
-
