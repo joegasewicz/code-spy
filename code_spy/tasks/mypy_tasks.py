@@ -1,3 +1,5 @@
+import textwrap
+
 from mypy import api
 
 from code_spy.logger import log
@@ -6,11 +8,18 @@ from code_spy.tasks.base_task import BaseTask
 
 class MyPyTask(BaseTask):
 
-    def __init__(self, *, path: str, mypy_file: str = "mypy.ini"):
+    def __init__(
+            self,
+            *,
+            path: str,
+            mypy_file: str = "mypy.ini",
+            full_logs: bool = False,
+    ):
         self.path = path
         self.mypy_file = mypy_file
+        self.full_logs = full_logs
 
-    def run(self):
+    def run(self, *, log_length: int):
 
         result = api.run([
             "--strict",
@@ -21,15 +30,19 @@ class MyPyTask(BaseTask):
         std_info = result[0]
         std_error = result[1]
 
-        if std_error:
-            std_error = f"[mypy]: {std_error}"
-            log.error(std_error)
-        elif "error:" in std_info:
-            std_info = f"[mypy]: {std_info}"
-            log.error(std_info)
+        msg_log = std_error or std_info
+
+        if "error:" in msg_log:
+            if self.full_logs:
+                log.error(f"[mypy] {msg_log}")
+            else:
+                msg = textwrap.shorten(msg_log, width=log_length, placeholder="...")
+                msg_log = f"[mypy]: {msg}"
+                log.error(msg_log)
         else:
-            std_info = f"[mypy]: {std_info}"
-            log.info(std_info)
+            msg = textwrap.shorten(msg_log, width=log_length, placeholder="...")
+            msg_log = f"[mypy]: {msg}"
+            log.info(msg_log)
 
     def stop(self) -> None:
         pass

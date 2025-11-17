@@ -1,6 +1,5 @@
+import textwrap
 from pylint import lint
-
-
 
 from code_spy.tasks.base_task import BaseTask
 from code_spy.logger import log
@@ -15,7 +14,7 @@ class PylintTask(BaseTask):
         self.rcfile = rcfile
         self.args = args
 
-    def run(self) -> None:
+    def run(self, *, log_length: int) -> None:
         args = [self.path]
         if self.rcfile:
             args.append("--rcfile")

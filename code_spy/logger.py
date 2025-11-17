@@ -2,6 +2,8 @@ import logging
 
 from colorama import Fore, Style
 
+from code_spy._version import __version__
+
 # Override 3rd party logging
 logging.getLogger("fsevents").setLevel(logging.WARNING)
 
@@ -35,5 +37,19 @@ handler = logging.StreamHandler()
 handler.setFormatter(formatter)
 
 log = logging.getLogger(__name__)
+log.handlers = []   # To stop duplicate logging
 log.addHandler(handler)
+log.propagate = False
 # log.setLevel(logging.INFO)
+
+
+def preamble_log():
+
+    print(f"""{Fore.CYAN}
+ ██████╗ ██████╗ ██████╗ ███████╗    ███████╗██████╗ ██╗   ██╗
+██╔════╝██╔═══██╗██╔══██╗██╔════╝    ██╔════╝██╔══██╗╚██╗ ██╔╝
+██║     ██║   ██║██║  ██║█████╗      ███████╗██████╔╝ ╚████╔╝ 
+██║     ██║   ██║██║  ██║██╔══╝      ╚════██║██╔═══╝   ╚██╔╝  
+╚██████╗╚██████╔╝██████╔╝███████╗    ███████║██║        ██║   
+ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝    ╚══════╝╚═╝        ╚═╝  {__version__} 
+    {Fore.RESET}""")

@@ -1,6 +1,6 @@
 import threading
 from typing import Callable, Iterable, Any, Union
-from wsgiref.simple_server import make_server, WSGIRequestHandler
+from wsgiref.simple_server import make_server, WSGIRequestHandler, WSGIServer
 
 from code_spy.tasks import BaseTask
 from code_spy.logger import log
@@ -9,29 +9,42 @@ from code_spy.logger import log
 WSGICallable = Callable[[dict[str, Any], Any], Iterable[bytes]]
 
 
+class QuietWSGIServer(WSGIServer):
+
+    def log_message(self, format, *args):
+        return
+
+
+class QuietHandler(WSGIRequestHandler):
+
+    def log_message(self, format, *args):
+        return
+
+
 class WSGIServerThread(threading.Thread):
 
-    def __init__(self, app, host, port):
+    def __init__(self, app, host, port, log_length):
         super().__init__()
         self.app = app
         self.host = host
         self.port = port
+        self.log_length = log_length
         self.server = None
 
     def run(self):
-        log.info("[server task] Starting development Server...")
+        log.info("[dev-server] Starting development Server...")
         self.server = make_server(
             self.host,
             self.port,
             self.app,
-            handler_class=WSGIRequestHandler,
+            server_class=QuietWSGIServer,
+            handler_class=QuietHandler,
         )
 
         self.server.allow_reuse_address = True
         self.server.serve_forever()
 
     def stop(self):
-        log.info("[server task] Stopping Dev Server...")
         if self.server:
             self.server.shutdown()
             self.server.server_close()
@@ -54,12 +67,13 @@ class DevServerTask(BaseTask):
         self.host = host
         self.port = port
 
-    def run(self) -> None:
+    def run(self, *, log_length: int) -> None:
         if not self.thread:
             self.thread = WSGIServerThread(
                 app=self.wsgi_app,
                 host=self.host,
                 port=self.port,
+                log_length=log_length,
             )
             self.thread.start()
 
