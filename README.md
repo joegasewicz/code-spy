@@ -44,7 +44,9 @@ if __name__ == "__main__":
 - **Pylint** ✅
 - **Pytest** *TODO*
  
-### Plugins 
+### Plugins
+To restrict third party libraries to ship with code-spy, the rest of the tasks
+are installed via plugins. These include:
 - **ISort** *TODO*
 - **Flake8** *TODO*
 - **Bandit** *TODO*
