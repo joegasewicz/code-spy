@@ -2,6 +2,7 @@
 
 Watches for file changes & runs tasks against your Python code.
 
+![Output](examples/out.png)
 
 ### Install
 ```bash
