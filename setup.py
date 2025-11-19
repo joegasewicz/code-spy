@@ -12,7 +12,7 @@ setup(
     py_modules=["code_spy"],
     install_requires=[
         "watchdog",
-        "colorama"
+        "colorama",
         "mypy",
         "pylint",
         "pytest",
