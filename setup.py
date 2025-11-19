@@ -13,14 +13,10 @@ setup(
     install_requires=[
         "watchdog",
         "colorama",
+        "mypy",
+        "pylint",
+        "pytest",
     ],
-    extras_require={
-        "dev": [
-            "mypy",
-            "pylint",
-            "pytest",
-        ],
-    },
     classifiers=[
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",

@@ -1,8 +1,7 @@
 from bobtail import BobTail, AbstractRoute, Request, Response
 from bobtail_logger import BobtailLogger
-
-from code_spy import (
-    CodeSpy,
+from code_spy.core import CodeSpy
+from code_spy.tasks import (
     MyPyTask,
     DevServerTask,
     PylintTask,

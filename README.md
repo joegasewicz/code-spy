@@ -11,9 +11,9 @@ Watches for file changes & runs tasks against your Python code.
 ### Quickstart
 
 ```python
-from flask import Flask
-from code_spy import (
-    CodeSpy,
+from flask import Flask  # Or any WSGI application framework
+from code_spy.core import CodeSpy
+from code_spy.tasks import (
     MyPyTask,
     DevServerTask,
     PylintTask,
