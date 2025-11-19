@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c9da604635a7bc1eaa5110ce6fbf06e0ee6e564083aaf5a3686406f399ef4655"
+            "sha256": "340ca58cab1e3fa249f83a6259ee31cd41ba253e7991c5c34b7e69c136733943"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.14"
+            "python_version": "3.12"
         },
         "sources": [
             {
@@ -248,10 +248,11 @@
         },
         "bobtail": {
             "hashes": [
-                "sha256:c32bffaa199348a67a02bc229062452b1f297a42d8a669c8a100dc8fa8a2e789"
+                "sha256:563e49d867f35d3b1e31f9fe89467c9cee92be2d4ae945619804da07f3130592",
+                "sha256:8ab3e0fcbb4f0bbaf912bb1f27da2d6f6c8dee6bb626524d8a50315e18c4516e"
             ],
             "index": "pypi",
-            "version": "==0.0.29"
+            "version": "==0.2.1"
         },
         "bobtail-logger": {
             "hashes": [
@@ -409,6 +410,7 @@
                 "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44",
                 "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
             ],
+            "index": "pypi",
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6'",
             "version": "==0.4.6"
         },
