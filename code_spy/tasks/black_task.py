@@ -39,7 +39,7 @@ class BlackTask(BaseTask):
                 log.info(f"[black] {BLACK_HAPPY_LOG} {rel_file_path}")
         except NothingChanged as err:
             log.error(f"[black] {BLACK_NO_FILES_ERROR_LOG}")
-        except (NothingChanged, CannotSplit, CannotTransform) as err:
+        except (CannotSplit, CannotTransform) as err:
             log.error(f"[black] {BLACK_ERROR_LOG} {err}")
         except (ValueError, AssertionError) as err:
             log.error(f"[black] {BLACK_ERROR_LOG} {err}")
