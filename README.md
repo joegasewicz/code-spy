@@ -49,6 +49,7 @@ if __name__ == "__main__":
 - **SimpleHttpServer** ✅
 - **Pylint** ✅
 - **Pytest** ✅
+- **Black** ✅
  
 ### Tasks Requiring Library Installs
 To restrict the amount of third party libraries that ship with code-spy, the rest of the tasks
