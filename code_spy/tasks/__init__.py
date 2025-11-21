@@ -5,6 +5,7 @@ from code_spy.tasks.mypy_tasks import MyPyTask
 from code_spy.tasks.dev_server_task import DevServerTask
 from code_spy.tasks.pylint_task import PylintTask
 from code_spy.tasks.pytest_task import PytestTask
+from code_spy.tasks.black_task import BlackTask
 
 __all__ = [
     "BaseTask",
@@ -12,6 +13,7 @@ __all__ = [
     "DevServerTask",
     "PylintTask",
     "PytestTask",
+    "BlackTask",
 ]
 
 if TYPE_CHECKING:

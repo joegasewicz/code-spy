@@ -19,6 +19,7 @@ from code_spy.tasks import (
     DevServerTask,
     PylintTask,
     PytestTask,
+    BlackTask,
 )
 
 
@@ -34,6 +35,7 @@ if __name__ == "__main__":
             MyPyTask(path="routes",mypy_file="mypy.ini"),
             PylintTask(path="routes", rcfile=".pylintrc"),
             PytestTask(path="tests"),
+            BlackTask(path="routes"),
             DevServerTask(wsgi_app=flask),
         ]
     )

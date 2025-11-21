@@ -42,7 +42,7 @@ class PytestTask(BaseTask):
         self.path = path
         self.args = args
 
-    def run(self, *, log_length: int) -> None:
+    def run(self, *, log_length: int, src_path: str) -> None:
         args = []
         if self.path:
             args.append(self.path)

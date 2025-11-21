@@ -29,7 +29,8 @@ class CodeSpy:
 
     def run(self):
         for task in self.tasks:
-            task.run(log_length=self.log_length)
+            # Pass an empty string to src_path as no operation has taken place yet.
+            task.run(log_length=self.log_length, src_path="")
 
     def watch(self):
         self.observer.schedule(self.file_handler, self.path, recursive=True)

@@ -24,7 +24,9 @@ class FileEventHandler(FileSystemEventHandler):
             return
         self.last_time = now
 
-        log.info("[code-spy] Re-running tasks...")
         for task in self.tasks:
             task.stop()
-            task.run(log_length=self.log_length)
+            task.run(
+                log_length=self.log_length,
+                src_path=event.src_path,
+            )

@@ -19,7 +19,7 @@ class MyPyTask(BaseTask):
         self.mypy_file = mypy_file
         self.full_logs = full_logs
 
-    def run(self, *, log_length: int):
+    def run(self, *, log_length: int, src_path: str):
 
         result = api.run([
             "--strict",

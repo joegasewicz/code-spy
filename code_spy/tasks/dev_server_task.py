@@ -67,7 +67,7 @@ class DevServerTask(BaseTask):
         self.host = host
         self.port = port
 
-    def run(self, *, log_length: int) -> None:
+    def run(self, *, log_length: int, src_path: str) -> None:
         if not self.thread:
             self.thread = WSGIServerThread(
                 app=self.wsgi_app,

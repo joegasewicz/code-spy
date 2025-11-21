@@ -9,6 +9,7 @@ watchdog = "*"
 colorama = "*"
 pylint = "*"
 pytest = "*"
+black = "*"
 
 [dev-packages]
 pylint = "*"

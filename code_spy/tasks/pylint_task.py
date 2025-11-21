@@ -44,7 +44,7 @@ class PylintTask(BaseTask):
         self.rcfile = rcfile
         self.args = args
 
-    def run(self, *, log_length: int) -> None:
+    def run(self, *, log_length: int, src_path: str) -> None:
         args = [self.path]
         if self.rcfile:
             args.append("--rcfile")
