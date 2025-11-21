@@ -47,6 +47,5 @@ class BlackTask(BaseTask):
             # If we arrive here then something terrible has happened
             log.error(f"[black] Error: {err}", exc_info=err)
 
-
     def stop(self) -> None:
         pass
