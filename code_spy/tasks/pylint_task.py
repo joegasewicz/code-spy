@@ -32,10 +32,11 @@ class SilentReporter(BaseReporter, ReportsHandlerMixIn):
         previous_stats: LinterStats | None,
     ) -> None:
         score = stats.global_note
-        previous_score = previous_stats.global_note
-        if len(self.messages) == 0:
-            score = score if score != 0 else previous_score # TODO Issue - #25
-            log.info(f"[pylint] Your code has been rated at {score:.2f}/10")
+        if hasattr(previous_stats, "global_note"):
+            previous_score = previous_stats.global_note
+            if len(self.messages) == 0:
+                score = score if score != 0 else previous_score # TODO Issue - #25
+                log.info(f"[pylint] Your code has been rated at {score:.2f}/10")
 
 class PylintTask(BaseTask):
 
