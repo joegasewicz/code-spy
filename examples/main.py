@@ -18,6 +18,7 @@ if __name__ == "__main__":
     bobtail = BobTail(routes=routes)
     bobtail.use(BobtailLogger())
     dr = CodeSpy(
+        watch_path=".",
         tasks=[
             MyPyTask(path="routes", mypy_file="mypy.ini"),
             PylintTask(path="routes", rcfile=".pylintrc"),

@@ -22,24 +22,25 @@ from code_spy.tasks import (
     BlackTask,
 )
 
-
 if __name__ == "__main__":
-    
     # Create an instance of a WSGI application
     flask = Flask(__name__)
-    
+
     # Pass the code spy shipped tasks to the `tasks` kwarg:
     cs = CodeSpy(
-        path=".",
+        watch_path=".",  # Optional: The path that codespy will run tasks against on file system change.
+        interval=1,  # Optional (Default is 1 second) Restrict how often codespy can rerun tasks.
+        ignore_dirs=["some_file"],  # Optional: Ignore files & directories from this directory path.
+        log_length=100, # Optional: Restrict the character length of logs.
         tasks=[
-            MyPyTask(path="routes",mypy_file="mypy.ini"),
+            MyPyTask(path="routes", mypy_file="mypy.ini"),
             PylintTask(path="routes", rcfile=".pylintrc"),
             PytestTask(path="tests"),
             BlackTask(path="routes"),
             DevServerTask(wsgi_app=flask),
         ]
     )
-    
+
     # Now call `watch`, that's it!
     cs.watch()
 ```
