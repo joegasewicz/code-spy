@@ -10,11 +10,9 @@ class CodeSpy:
     def __init__(
             self,
             *,
-            path: str,
             tasks: list[BaseTask],
             log_length: int = 100,
     ):
-        self.path = path
         self.tasks = tasks
         self.log_length = log_length
 
@@ -33,6 +31,6 @@ class CodeSpy:
             task.run(log_length=self.log_length, src_path="")
 
     def watch(self):
-        self.observer.schedule(self.file_handler, self.path, recursive=True)
+        self.observer.schedule(self.file_handler, recursive=True)
         self.observer.start()
         self.observer.join()
