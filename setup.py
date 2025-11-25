@@ -16,6 +16,7 @@ setup(
         "mypy",
         "pylint",
         "pytest",
+        "black",
     ],
     classifiers=[
         "Programming Language :: Python :: 3.10",
