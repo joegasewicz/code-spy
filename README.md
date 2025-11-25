@@ -2,7 +2,7 @@
 
 Python developer tool that watches for file changes & runs tasks against your Python code.
 
-![Output](examples/out.png)
+![Terminal Example](examples/codyspy2.png)
 
 ### Install
 ```bash

@@ -20,10 +20,10 @@ if __name__ == "__main__":
     dr = CodeSpy(
         watch_path=".",
         tasks=[
-            MyPyTask(path="routes", mypy_file="mypy.ini"),
-            PylintTask(path="routes", rcfile=".pylintrc"),
-            PytestTask(path="tests"),
-            BlackTask(path="routes"),
+            MyPyTask(path="examples/routes", mypy_file="examples/mypy.ini"),
+            PylintTask(path="examples/routes", rcfile="examples/.pylintrc"),
+            PytestTask(path="examples/tests"),
+            BlackTask(path="examples/routes"),
             DevServerTask(wsgi_app=bobtail),
         ],
     )
