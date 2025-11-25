@@ -2,8 +2,11 @@ import threading
 from typing import Callable, Iterable, Any, Union
 from wsgiref.simple_server import make_server, WSGIRequestHandler, WSGIServer
 
+from colorama import Fore
+
 from code_spy.tasks import BaseTask
-from code_spy.logger import log
+from code_spy.logger import log_task_info
+
 
 
 WSGICallable = Callable[[dict[str, Any], Any], Iterable[bytes]]
@@ -32,7 +35,7 @@ class WSGIServerThread(threading.Thread):
         self.server = None
 
     def run(self):
-        log.info("[dev-server] Starting development Server...")
+        log_task_info("dev-server",  "Starting development Server...", Fore.BLUE)
         self.server = make_server(
             self.host,
             self.port,

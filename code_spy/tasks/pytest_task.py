@@ -2,9 +2,10 @@ import sys
 import importlib
 
 import pytest
+from colorama import Fore
 
 from code_spy.tasks.base_task import BaseTask
-from code_spy.logger import log
+from code_spy.logger import log_task_info, log_task_error
 
 
 class PytestLogger:
@@ -31,9 +32,9 @@ class PytestLogger:
                 long_message = report.longrepr
                 long_msg = str(long_message).split("_ _ _ _ _")[0]
                 msg += f"\n\t✖ {report.nodeid} {long_msg}"
-                log.error(msg)
+                log_task_error("pytest", msg, Fore.GREEN)
         else:
-            log.info(f"[pytest] ✔ {self.passed} passed, ✖ {self.failed} failed, ⚠ {self.skipped} skipped")
+            log_task_info("pytest", f"{self.passed} passed, ✖ {self.failed} failed, ⚠ {self.skipped} skipped", Fore.GREEN)
 
 
 class PytestTask(BaseTask):

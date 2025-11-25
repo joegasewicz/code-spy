@@ -7,10 +7,16 @@ from black import (
     NothingChanged,
 )
 from black.linegen import CannotSplit, CannotTransform
+from colorama import Fore
 
 
 from code_spy.tasks.base_task import BaseTask
-from code_spy.logger import log
+from code_spy.logger import (
+    log_task_info,
+    log_task_error,
+    log_task_warning,
+    log,
+)
 
 
 BLACK_HAPPY_LOG = "All done! ✨ 🍰 ✨ 1 file reformatted."
@@ -36,13 +42,13 @@ class BlackTask(BaseTask):
                 )
                 root_path = Path.cwd()
                 rel_file_path = file_path.relative_to(root_path)
-                log.info(f"[black] {BLACK_HAPPY_LOG} {rel_file_path}")
+                log_task_info(f"black", f"{BLACK_HAPPY_LOG} {rel_file_path}", Fore.WHITE)
         except NothingChanged as err:
-            log.error(f"[black] {BLACK_NO_FILES_ERROR_LOG}")
+            log_task_warning("black", f"{BLACK_NO_FILES_ERROR_LOG}", Fore.WHITE)
         except (CannotSplit, CannotTransform) as err:
-            log.error(f"[black] {BLACK_ERROR_LOG} {err}")
+            log_task_error("black", f"{BLACK_ERROR_LOG} {err}", Fore.BLACK)
         except (ValueError, AssertionError) as err:
-            log.error(f"[black] {BLACK_ERROR_LOG} {err}")
+            log_task_error("black", f"{BLACK_ERROR_LOG} {err}", Fore.BLACK)
         except Exception as err:
             # If we arrive here then something terrible has happened
             log.error(f"[black] Error: {err}", exc_info=err)
