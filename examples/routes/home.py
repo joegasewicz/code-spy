@@ -10,6 +10,7 @@ class HomeRoute(AbstractRoute):  # type: ignore[misc]
         pass
 
     def put(self, req: Request, res: Response) -> None:
+
         pass
 
     def delete(self, req: Request, res: Response) -> None:
